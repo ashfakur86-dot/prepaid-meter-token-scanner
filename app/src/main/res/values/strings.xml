@@ -11,4 +11,5 @@
     <string name="btn_done">Done</string>
     <string name="clear_all">মুছে ফেলুন</string>
     <string name="error_processing">ত্রুটি: %s</string>
+    <string name="instruction_banner_text">প্রতি ২০ ডিজিট কোড মিটারে এন্ট্রি করার সাথে সাথে যদি মিটারে সঠিক হয়, তাহলে মোবাইলের এন্টার বাটনটি চাপুন।</string>
 </resources>

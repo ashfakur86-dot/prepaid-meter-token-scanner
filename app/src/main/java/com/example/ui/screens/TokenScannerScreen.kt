@@ -238,6 +238,32 @@ fun TokenScannerScreen(
                 }
             }
 
+            // Instruction Banner Card
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .testTag("instruction_banner"),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color(0xFFFFF8E1) // amber.shade50 equivalent
+                ),
+                shape = RoundedCornerShape(8.dp),
+                border = BorderStroke(1.dp, Color(0xFFFFD54F)) // amber.shade300 equivalent
+            ) {
+                Text(
+                    text = stringResource(R.string.instruction_banner_text),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(10.dp),
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.bodyMedium.copy(
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = Color(0xFF37474F), // High contrast readable text
+                        lineHeight = 18.sp
+                    )
+                )
+            }
+
             // Main Content Area: Loading / Empty State / Scanned Token List
             Box(
                 modifier = Modifier
