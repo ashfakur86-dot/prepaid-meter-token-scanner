@@ -25,20 +25,20 @@ jobs:
 
     - name: Fix Android MinSdkVersion
       run: |
-        sed -i 's/minSdkVersion .*/minSdkVersion 21/' app/android/app/build.gradle || sed -i 's/minSdkVersion .*/minSdkVersion 21/' android/app/build.gradle
+        sed -i 's/minSdkVersion .*/minSdkVersion 21/' app/android/app/build.gradle
 
     - name: Get Dependencies
       run: |
-        if [ -d "app" ]; then cd app; fi
+        cd app
         flutter pub get
 
     - name: Build APK Release
       run: |
-        if [ -d "app" ]; then cd app; fi
+        cd app
         flutter build apk --release
 
     - name: Upload Finished Artifact
       uses: actions/upload-artifact@v4
       with:
         name: Prepaid-Token-App
-        path: "**/build/app/outputs/apk/release/app-release.apk"
+        path: app/build/app/outputs/apk/release/app-release.apk
