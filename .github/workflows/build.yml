@@ -1,4 +1,4 @@
-name: Ultimate Flutter APK Build
+name: Build Android APK
 
 on:
   push:
@@ -12,33 +12,21 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Java 17
+    - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
         distribution: 'zulu'
         java-version: '17'
+        cache: 'gradle'
 
-    - name: Set up Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        channel: 'stable'
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
 
-    - name: Fix Android MinSdkVersion
-      run: |
-        sed -i 's/minSdkVersion .*/minSdkVersion 21/' app/android/app/build.gradle
+    - name: Build with Gradle
+      run: ./gradlew assembleRelease
 
-    - name: Get Dependencies
-      run: |
-        cd app
-        flutter pub get
-
-    - name: Build APK Release
-      run: |
-        cd app
-        flutter build apk --release
-
-    - name: Upload Finished Artifact
+    - name: Upload Finished APK
       uses: actions/upload-artifact@v4
       with:
         name: Prepaid-Token-App
-        path: app/build/app/outputs/apk/release/app-release.apk
+        path: app/build/outputs/apk/release/app-release.apk
