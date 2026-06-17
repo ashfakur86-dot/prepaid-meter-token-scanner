@@ -20,13 +20,27 @@ jobs:
         cache: 'gradle'
 
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: |
+        if [ -f "gradlew" ]; then
+          chmod +x gradlew
+        elif [ -f "app/gradlew" ]; then
+          chmod +x app/gradlew
+        fi
 
     - name: Build with Gradle
-      run: ./gradlew assembleRelease
+      run: |
+        if [ -f "gradlew" ]; then
+          ./gradlew assembleRelease
+        elif [ -f "app/gradlew" ]; then
+          cd app
+          ./gradlew assembleRelease
+        else
+          echo "Gradlew not found, attempting direct build"
+          cd app && gradlew assembleRelease || gradle assembleRelease
+        fi
 
     - name: Upload Finished APK
       uses: actions/upload-artifact@v4
       with:
         name: Prepaid-Token-App
-        path: app/build/outputs/apk/release/app-release.apk
+        path: "**/build/outputs/apk/release/*.apk"
