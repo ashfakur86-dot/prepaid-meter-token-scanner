@@ -1,0 +1,6 @@
+{
+  "name": "Prepaid Token Formatter",
+  "description": "Scan prepaid tokens from receipts or photos, format them into 20-digit chunks (XXXX XXXX XXXX XXXX XXXX), and easily copy or mark them as entered.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

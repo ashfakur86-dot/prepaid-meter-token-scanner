@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Prepaid Token Formatter</string>
+    <string name="btn_camera">ক্যামেরা</string>
+    <string name="btn_gallery">গ্যালারি</string>
+    <string name="placeholder_text">টোকেনের ছবি তুলুন বা গ্যালারি থেকে সিলেক্ট করুন।</string>
+    <string name="btn_copy_all">সব টোকেন একসাথে কপি করুন</string>
+    <string name="toast_copied_all">সব টোকেন কপি করা হয়েছে!</string>
+    <string name="toast_copied_single">টোকেন কপি করা হয়েছে!</string>
+    <string name="no_tokens">ছবিতে কোনো টোকেন পাওয়া যায়নি!</string>
+    <string name="btn_enter">Enter</string>
+    <string name="btn_done">Done</string>
+    <string name="clear_all">মুছে ফেলুন</string>
+    <string name="error_processing">ত্রুটি: %s</string>
+</resources>
